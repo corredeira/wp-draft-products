@@ -1,5 +1,5 @@
 <?php
-require($_SERVER['DOCUMENT_ROOT'].'/MA/wp-load.php');
+require($_SERVER['DOCUMENT_ROOT'].'/wp-load.php');
 global $wpdb;
 
 $product_ids = $wpdb->get_col( "
@@ -13,7 +13,7 @@ $product_ids = $wpdb->get_col( "
     AND pm.meta_value = 'instock'
 ");
 
-echo "<pre>"; print_r($product_ids); echo "</pre>";
+//echo "<pre>"; print_r($product_ids); echo "</pre>";
     if ($product_ids > 0 ){
         foreach($product_ids as $post => $post_id) {
             $my_post = array(
@@ -21,7 +21,7 @@ echo "<pre>"; print_r($product_ids); echo "</pre>";
                 'post_status'   =>  'draft'
                 
             );
-            echo "<pre>"; print_r($my_post); echo "</pre>";
+            //echo "<pre>"; print_r($my_post); echo "</pre>";
             
             $new = wp_update_post($my_post);
             echo $new;
